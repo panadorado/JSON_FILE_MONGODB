@@ -9,11 +9,16 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.get('/', (req, res, next) => {
+  res.send('hello world!');
+});
+
+app.get('/sample_mydatabase_json', (req, res, next) => {
     userdetail.find({})
     .then((userdetail) =>  res.json(userdetail))
     .catch(next);
 });
 
+// connect mongodb
 db.connect();
 
 const PORT = 3000;
